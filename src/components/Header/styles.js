@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   align-items: center;
   padding: 13px 16px;
   gap: 8px;
+  z-index: 1;
 
   @media ${device.tablet} {
     width: 100vw;

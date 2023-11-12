@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import { device } from "@/utils/breakpoints";
 
+import { font } from "@/globalStyle";
+
 const Wrapper = styled.div`
   display: flex;
   position: fixed;
@@ -17,6 +19,7 @@ const Wrapper = styled.div`
 
 const Item = styled.div`
   padding: 12px 0 16px;
+  ${font({ color: "var(--color-text-primary-700)", size: "10px" })};
   > img {
     width: 24px;
     height: 24px;
