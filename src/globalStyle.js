@@ -87,7 +87,7 @@ const font = ({ color, size }) => `
 	background: ${color};
 	-webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-	font-size: ${size};
+	${size && `font-size: ${size}`};
 `;
 
 const H1HeadingTitle = () => `
