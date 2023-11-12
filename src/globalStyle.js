@@ -16,12 +16,17 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-primary-900: #0F172A;
 		--color-text-secondary: ##94A3B8;
 		--color-bg-theme-1: #FDFCFB;
-		--color-bg-theme-2: ##F7ECE1;
+		--color-bg-theme-2: #F7ECE1;
 	}
 
 	* {
 		font-family: Inter;
 		font-style: normal;
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: var(--color-bg-theme-1);
 	}
 
 	@font-face {
