@@ -26,7 +26,12 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   ${H4HeadingTitle};
+  font-size: 20px;
   color: var(--color-primary-theme-1);
+
+  @media ${device.tablet} {
+    font-size: 24px;
+  }
 `;
 
 const SocialIconBlock = styled.div`
