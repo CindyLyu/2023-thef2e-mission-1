@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 import {
-  H6HeadingTitle,
-  BigText,
-  font,
   H4HeadingTitle,
   NormalText,
   BaseText,
@@ -40,24 +37,6 @@ const TextBlock = styled.div`
   padding: 40px 24px 0;
   @media ${device.desktop} {
     padding: 64px 40px;
-  }
-`;
-
-const Label = styled.div`
-  border-radius: 8px;
-  background-color: var(--color-text-primary-700);
-  ${H6HeadingTitle};
-  color: #fff;
-  padding: 8px 12px;
-`;
-
-const Title = styled.div`
-  ${BigText};
-  ${font({ color: "var(--color-primary-gradient)" })}
-  margin-bottom: 32px;
-
-  @media ${device.desktop} {
-    font-size: 64px;
   }
 `;
 
@@ -109,8 +88,6 @@ export {
   Wrapper,
   Content,
   TextBlock,
-  Label,
-  Title,
   SubTitle,
   HighlightText,
   Description,

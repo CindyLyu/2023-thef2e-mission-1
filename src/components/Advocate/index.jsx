@@ -1,9 +1,10 @@
+import { Label } from "@/components/Label";
+import { Title } from "@/components/Title";
+
 import {
   Wrapper,
   Content,
   TextBlock,
-  Label,
-  Title,
   SubTitle,
   HighlightText,
   Description,
