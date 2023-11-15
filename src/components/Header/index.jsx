@@ -3,7 +3,7 @@ import { Wrapper, Title, SocialIconBlock, ItemBlock, Item } from "./styles";
 const Header = () => {
   return (
     <Wrapper>
-      <img src="./public/favicon.svg" />
+      <img src="favicon.svg" />
       <Title>喵立翰 Miao Li-Han</Title>
       <ItemBlock>
         <Item>候選人主張</Item>
