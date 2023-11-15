@@ -4,6 +4,7 @@ import { Intro } from "@/components/Intro";
 import { Advocate } from "@/components/Advocate";
 import { Events } from "@/components/Events";
 import { Issues } from "@/components/Issues";
+import { Service } from "@/components/Service";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Advocate />
       <Events />
       <Issues />
+      <Service />
     </>
   );
 }
