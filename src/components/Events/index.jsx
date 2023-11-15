@@ -8,6 +8,7 @@ import {
   TopEventBlock,
   TopEventTitle,
   Date,
+  EventBlock,
   TopDescription,
   OtherEventBlock,
   OtherEventImage,
@@ -46,35 +47,44 @@ const Events = () => {
     <Wrapper>
       <Label>LATEST EVENTS</Label>
       <Title>最新活動</Title>
-      <TopEventBlock>
-        <TopEventImage>
-          <img
-            src={new URL("/src/assets/events/intro.png", import.meta.url).href}
-            alt="最新活動"
-          />
-        </TopEventImage>
-        <Date>2023/12/26</Date>
-        <TopEventTitle>參與台北寵物論壇，爭取貓咪友善環境</TopEventTitle>
-        <TopDescription>
-          炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的
-          VIP 休憩空間。
-        </TopDescription>
-      </TopEventBlock>
-      {otherEvents.map((event) => (
-        <OtherEventBlock key={event.title}>
-          <OtherEventImage>
-            <img src={event.image} alt={event.title} />
-          </OtherEventImage>
-          <OtherEventTextBlock>
-            <Date>{event.date}</Date>
-            <OtherEventTitle>{event.title}</OtherEventTitle>
-            <OtherEventDescription>{event.description}</OtherEventDescription>
-          </OtherEventTextBlock>
-        </OtherEventBlock>
-      ))}
-      <ButtonBlock>
-        <Button className="-blue">查看更多</Button>
-      </ButtonBlock>
+      <EventBlock>
+        <TopEventBlock>
+          <TopEventImage>
+            {/* TODO: 待優化圖片 */}
+            <img
+              src={
+                new URL("/src/assets/events/intro.png", import.meta.url).href
+              }
+              alt="最新活動"
+            />
+          </TopEventImage>
+          <Date>2023/12/26</Date>
+          <TopEventTitle>參與台北寵物論壇，爭取貓咪友善環境</TopEventTitle>
+          <TopDescription>
+            炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的
+            VIP 休憩空間。
+          </TopDescription>
+        </TopEventBlock>
+        <div>
+          {otherEvents.map((event) => (
+            <OtherEventBlock key={event.title}>
+              <OtherEventImage>
+                <img src={event.image} alt={event.title} />
+              </OtherEventImage>
+              <OtherEventTextBlock>
+                <Date className="-other">{event.date}</Date>
+                <OtherEventTitle>{event.title}</OtherEventTitle>
+                <OtherEventDescription>
+                  {event.description}
+                </OtherEventDescription>
+              </OtherEventTextBlock>
+            </OtherEventBlock>
+          ))}
+          <ButtonBlock>
+            <Button className="-blue">查看更多</Button>
+          </ButtonBlock>
+        </div>
+      </EventBlock>
     </Wrapper>
   );
 };

@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   padding: 16px 24px;
   min-width: 104px;
   display: inline-flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   &.-blue {
     background-color: var(--color-text-primary-100);
@@ -15,8 +15,8 @@ const Wrapper = styled.div`
     &:after {
       content: "";
       background-image: url("/src/assets/events/arrow.svg");
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       display: inline-block;
       background-size: contain;
       background-repeat: no-repeat;

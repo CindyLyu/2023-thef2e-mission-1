@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { device } from "@/utils/breakpoints";
+
 import {
   SmallText,
   H5HeadingTitle,
@@ -11,18 +13,31 @@ const Wrapper = styled.div`
   padding: 64px 16px;
   background-color: #fff;
   text-align: center;
+  @media ${device.desktop} {
+    padding: 104px 16px;
+  }
 `;
 
 const TopEventBlock = styled.div`
   width: 100%;
   text-align: left;
   margin-bottom: 24px;
+  @media ${device.desktop} {
+    margin-bottom: 0;
+  }
 `;
 
 const TopEventImage = styled.div`
   margin-bottom: 16px;
   > img {
     width: 100%;
+  }
+
+  @media ${device.desktop} {
+    > img {
+      max-height: 407px;
+      object-fit: cover;
+    }
   }
 `;
 
@@ -34,8 +49,23 @@ const TopEventTitle = styled.div`
 
 const Date = styled.div`
   ${SmallText};
-  margin-bottom: 8px;
   color: var(--color-text-primary-500);
+
+  &:not(.-other) {
+    margin-bottom: 8px;
+  }
+`;
+
+const EventBlock = styled.div`
+  @media ${device.desktop} {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    > div {
+      max-height: 538px;
+      max-width: 648px;
+    }
+  }
 `;
 
 const TopDescription = styled.div`
@@ -60,12 +90,22 @@ const OtherEventImage = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  @media ${device.tablet} {
+    max-height: 104px;
+  }
+
+  @media ${device.desktop} {
+    max-width: 201px;
+    max-height: 134px;
+  }
 `;
 
 const OtherEventTextBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   gap: 8px;
 `;
 
@@ -95,6 +135,7 @@ export {
   TopEventBlock,
   TopEventTitle,
   Date,
+  EventBlock,
   TopDescription,
   OtherEventBlock,
   OtherEventImage,
