@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Intro } from "@/components/Intro";
 import { Advocate } from "@/components/Advocate";
 import { Events } from "@/components/Events";
+import { Issues } from "@/components/Issues";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Intro />
       <Advocate />
       <Events />
+      <Issues />
     </>
   );
 }
