@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
 	@font-face {
 		font-family: 'Mantou Sans';
-		src: url('/src/assets/font/MantouSans-Regular.ttf');
+		src: url('/font/MantouSans-Regular.ttf');
 	}
 
  /* http://meyerweb.com/eric/tools/css/reset/ 
