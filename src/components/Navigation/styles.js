@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   justify-content: space-around;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.9);
