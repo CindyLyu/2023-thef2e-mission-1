@@ -50,12 +50,13 @@ const OtherEventBlock = styled.div`
 `;
 
 const OtherEventImage = styled.div`
-  width: 50%;
+  max-width: 109px;
+  max-height: 128px;
   flex-shrink: 0;
   overflow: hidden;
-  /* TODO: 圖片還沒弄好 */
+  border-radius: 8px;
   > img {
-    /* border: solid 1px red; */
+    width: 100%;
     height: 100%;
     object-fit: cover;
   }

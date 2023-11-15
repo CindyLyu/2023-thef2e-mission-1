@@ -49,7 +49,7 @@ const Events = () => {
       <TopEventBlock>
         <TopEventImage>
           <img
-            src={new URL("/src/assets/events/intro .png", import.meta.url).href}
+            src={new URL("/src/assets/events/intro.png", import.meta.url).href}
             alt="最新活動"
           />
         </TopEventImage>
