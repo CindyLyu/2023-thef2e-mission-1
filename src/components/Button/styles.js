@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   color: var(--color-text-primary-700);
   font-size: 16px;
   font-weight: 600;
+  cursor: pointer;
 
   &.-blue {
     background-color: var(--color-text-primary-100);
