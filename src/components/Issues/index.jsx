@@ -20,7 +20,7 @@ const data = [
 
 const Issues = () => {
   return (
-    <Wrapper>
+    <Wrapper id="issues">
       <TopBlock>
         <Label>POLICY ISSUES</Label>
         <Title>政策議題</Title>

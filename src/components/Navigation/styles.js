@@ -20,6 +20,7 @@ const Wrapper = styled.div`
 
 const Item = styled.div`
   padding: 12px 0 16px;
+  cursor: pointer;
   ${font({ color: "var(--color-text-primary-700)", size: "10px" })};
   > img {
     width: 24px;

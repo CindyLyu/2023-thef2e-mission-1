@@ -1,16 +1,23 @@
+import { handleAnchorPageScroll } from "@/libs/handleAnchorPageScroll";
 import { Wrapper, Title, SocialIconBlock, ItemBlock, Item } from "./styles";
 
-const Header = () => {
+const Header = ({ item = [] }) => {
   return (
-    <Wrapper>
+    <Wrapper id="header">
       <img src="favicon.svg" />
       <Title>喵立翰 Miao Li-Han</Title>
       <ItemBlock>
-        <Item>候選人主張</Item>
-        <Item>最新活動</Item>
-        <Item>政策議題</Item>
-        <Item>小額捐款</Item>
-        <Item>民眾服務信箱</Item>
+        {item &&
+          item.map((i) => (
+            <Item
+              key={i.name}
+              onClick={() => {
+                handleAnchorPageScroll({ id: `#${i.id}` });
+              }}
+            >
+              {i.alias || i.name}
+            </Item>
+          ))}
       </ItemBlock>
       <SocialIconBlock>
         <img

@@ -44,7 +44,7 @@ const otherEvents = [
 
 const Events = () => {
   return (
-    <Wrapper>
+    <Wrapper id="events">
       <Label>LATEST EVENTS</Label>
       <Title>最新活動</Title>
       <EventBlock>

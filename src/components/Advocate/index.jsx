@@ -13,7 +13,7 @@ import {
 
 const Advocate = () => {
   return (
-    <Wrapper>
+    <Wrapper id="advocate">
       <Content>
         <TextBlock>
           <Label>ADVOCATE</Label>
