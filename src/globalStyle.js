@@ -25,6 +25,11 @@ const GlobalStyle = createGlobalStyle`
 		font-style: normal;
 		box-sizing: border-box;
 	}
+	html, body {
+		// TODO WORKAROUND: 待解決跑馬燈超出的問題
+		width: 100vw;
+		overflow-x: hidden;
+	}
 
 	body {
 		background-color: var(--color-bg-theme-1);
