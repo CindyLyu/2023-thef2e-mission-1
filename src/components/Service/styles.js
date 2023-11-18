@@ -1,7 +1,15 @@
 import styled from "styled-components";
 import { Wrapper as ButtonWrapper } from "@/components/Button/styles";
 import { device } from "@/utils/breakpoints";
-import { BigText, font, H4HeadingTitle } from "@/globalStyle";
+import {
+  BigText,
+  font,
+  H4HeadingTitle,
+  H6HeadingTitle,
+  H5HeadingTitle,
+  SmallText,
+  NormalText,
+} from "@/globalStyle";
 
 const Wrapper = styled.div`
   padding: 64px 16px;
@@ -177,6 +185,121 @@ const Text = styled.div`
   }
 `;
 
+const VisualBlock = styled.div`
+  padding: 24px;
+  background-color: var(--color-bg-theme-2);
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+`;
+
+const VisualBlockTitle = styled.div`
+  ${H6HeadingTitle};
+  color: var(--color-primary-theme-1);
+  margin-bottom: 16px;
+`;
+
+const DonateTitle = styled.div`
+  ${SmallText};
+  color: var(--color-text-primary-700);
+`;
+
+const Amount = styled.div`
+  ${H5HeadingTitle};
+  color: var(--color-text-primary-700);
+`;
+
+const VisualImage = styled.div`
+  max-width: 95px;
+  > img {
+    width: 100%;
+  }
+`;
+
+const DonatePlan = styled.div`
+  ${H5HeadingTitle};
+  color: var(--color-text-primary-700);
+  margin-bottom: 16px;
+`;
+
+const PlanBlock = styled.div`
+  padding: 24px 12px;
+  border-radius: 16px;
+  border: solid 2px var(--color-text-primary-200);
+  & ~ & {
+    margin-top: 16px;
+  }
+`;
+
+const AmountBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const PlanTitle = styled.div`
+  color: var(--color-primary-theme-1);
+  ${H5HeadingTitle};
+  margin-bottom: 8.5px;
+`;
+
+const PlanAmount = styled.div`
+  ${H4HeadingTitle};
+  color: var(--color-text-primary-700);
+  &:before {
+    content: "NT$";
+    ${NormalText};
+    margin-right: 9px;
+  }
+`;
+
+const PlanContributors = styled.div`
+  ${SmallText};
+  color: var(--color-text-primary-500);
+  &:before {
+    content: "已有 ";
+  }
+  &:after {
+    content: " 人贊助";
+  }
+`;
+
+const InputBlock = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  &:before {
+    content: "NT$";
+    position: absolute;
+    left: 15px;
+    ${NormalText};
+    color: var(--color-text-primary-700);
+  }
+`;
+
+const Input = styled.input`
+  border-radius: 8px;
+  background-color: var(--color-text-primary-100);
+  padding: 16px 15px 16px 58px;
+  border: none;
+  width: 100%;
+  // TODO: placeholder style
+`;
+
+const ModalButton = styled.div`
+  margin-top: 16px;
+  width: 100%;
+  padding: 24px 32px;
+  background-color: var(--color-primary-theme-1);
+  color: #fff;
+  border-radius: 500px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+`;
+
 export {
   Wrapper,
   ItemWrapper,
@@ -190,4 +313,18 @@ export {
   Name,
   Number,
   Text,
+  VisualBlock,
+  VisualBlockTitle,
+  DonatePlan,
+  DonateTitle,
+  Amount,
+  VisualImage,
+  PlanBlock,
+  AmountBlock,
+  PlanTitle,
+  PlanAmount,
+  PlanContributors,
+  InputBlock,
+  Input,
+  ModalButton,
 };

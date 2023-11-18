@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "body-scroll-lock": "3.1.5",
+    "clsx": "^2.0.0",
     "gsap": "^3.12.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-transition-group": "^4.4.5",
     "styled-components": "^6.1.1"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { device } from "@/utils/breakpoints";
 
 const GlobalStyle = createGlobalStyle`
 	:root {
@@ -80,6 +81,30 @@ const GlobalStyle = createGlobalStyle`
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
+	}
+
+	.modal-enter {
+		opacity: 0;
+		transform: translateY(100%);
+		@media ${device.desktop} {
+			transform: translateY(10%);
+		}
+	}
+	.modal-enter-active {
+		opacity: 1;
+		transform: translateY(0);
+		transition: opacity 300ms, transform 300ms;
+	}
+	.modal-exit {
+		opacity: 1;
+	}
+	.modal-exit-active {
+		opacity: 0;
+		transform: translateY(100%);
+		transition: opacity 300ms, transform 300ms;
+		@media ${device.desktop} {
+			transform: translateY(10%);
+		}
 	}
 `;
 
