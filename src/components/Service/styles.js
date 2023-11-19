@@ -9,6 +9,8 @@ import {
   H5HeadingTitle,
   SmallText,
   NormalText,
+  H1HeadingTitle,
+  H2HeadingTitle,
 } from "@/globalStyle";
 
 const Wrapper = styled.div`
@@ -185,6 +187,16 @@ const Text = styled.div`
   }
 `;
 
+const DonateModalBlock = styled.div`
+  @media ${device.desktop} {
+    display: flex;
+    gap: 32px;
+    > * {
+      width: 50%;
+    }
+  }
+`;
+
 const VisualBlock = styled.div`
   padding: 24px;
   background-color: var(--color-bg-theme-2);
@@ -193,28 +205,48 @@ const VisualBlock = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+  @media ${device.desktop} {
+    display: block;
+    padding: 60px;
+    flex-shrink: 0;
+  }
 `;
 
 const VisualBlockTitle = styled.div`
   ${H6HeadingTitle};
   color: var(--color-primary-theme-1);
   margin-bottom: 16px;
+
+  @media ${device.desktop} {
+    ${H1HeadingTitle};
+  }
 `;
 
 const DonateTitle = styled.div`
   ${SmallText};
   color: var(--color-text-primary-700);
+  @media ${device.desktop} {
+    ${NormalText};
+  }
 `;
 
 const Amount = styled.div`
   ${H5HeadingTitle};
   color: var(--color-text-primary-700);
+  @media ${device.dekstop} {
+    ${H2HeadingTitle};
+  }
 `;
 
 const VisualImage = styled.div`
   max-width: 95px;
   > img {
     width: 100%;
+  }
+
+  @media ${device.desktop} {
+    max-width: 336px;
+    margin: 0 auto;
   }
 `;
 
@@ -225,6 +257,7 @@ const DonatePlan = styled.div`
 `;
 
 const PlanBlock = styled.div`
+  cursor: pointer;
   padding: 24px 12px;
   border-radius: 16px;
   border: solid 2px var(--color-text-primary-200);
@@ -298,6 +331,7 @@ const ModalButton = styled.div`
   text-align: center;
   font-size: 16px;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 export {
@@ -313,6 +347,7 @@ export {
   Name,
   Number,
   Text,
+  DonateModalBlock,
   VisualBlock,
   VisualBlockTitle,
   DonatePlan,

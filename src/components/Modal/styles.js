@@ -27,31 +27,42 @@ const Wrapper = styled.div`
 `;
 
 const Block = styled.div`
+  overflow: scroll;
   background-color: #fff;
-  border-radius: 24px 24px 0;
+  border-radius: 24px 24px 0 0;
   width: 100%;
   height: 100%;
   z-index: 1;
   position: relative;
-  padding: 0 16px 16px;
+  padding: 0 16px 16px 0;
   @media ${device.desktop} {
-    padding: 0px 48px 48px;
+    padding: 0px 48px 48px 0;
     border-radius: 24px;
     width: 90%;
     height: 90%;
   }
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  margin-top: 68px;
+  padding-left: 16px;
+  @media ${device.desktop} {
+    margin-top: 104px;
+    padding-left: 48px;
+  }
+`;
 
 const TitleBlock = styled.div`
   display: flex;
   align-items: center;
-  display: fixed;
-  padding: 16px 0%;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 16px;
   @media ${device.desktop} {
-    padding-bottom: 32px;
-    padding-top: 24px;
+    width: 90%;
+    padding: 24px 48px 32px;
   }
 `;
 

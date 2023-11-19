@@ -16,6 +16,7 @@ import {
   Name,
   Number,
   Text,
+  DonateModalBlock,
   VisualBlock,
   VisualBlockTitle,
   DonatePlan,
@@ -55,7 +56,7 @@ const Service = () => {
   const [isOpenServiceModal, setIsOpenServiceModal] = useState(false);
 
   const getDonateModalContent = (
-    <>
+    <DonateModalBlock>
       <VisualBlock>
         <div>
           <VisualBlockTitle>
@@ -75,24 +76,26 @@ const Service = () => {
           />
         </VisualImage>
       </VisualBlock>
-      <DonatePlan>捐款方案</DonatePlan>
-      {donatePlan.map((plan) => (
-        <PlanBlock key={plan.title}>
-          <PlanTitle>{plan.title}</PlanTitle>
-          <AmountBlock>
-            <PlanAmount>{plan.amount}</PlanAmount>
-            <PlanContributors>{plan.contributors}</PlanContributors>
-          </AmountBlock>
+      <div>
+        <DonatePlan>捐款方案</DonatePlan>
+        {donatePlan.map((plan) => (
+          <PlanBlock key={plan.title}>
+            <PlanTitle>{plan.title}</PlanTitle>
+            <AmountBlock>
+              <PlanAmount>{plan.amount}</PlanAmount>
+              <PlanContributors>{plan.contributors}</PlanContributors>
+            </AmountBlock>
+          </PlanBlock>
+        ))}
+        <PlanBlock>
+          <PlanTitle>自訂贊助金額</PlanTitle>
+          <InputBlock>
+            <Input placeholder="輸入金額"></Input>
+          </InputBlock>
         </PlanBlock>
-      ))}
-      <PlanBlock>
-        <PlanTitle>自訂贊助金額</PlanTitle>
-        <InputBlock>
-          <Input placeholder="輸入金額"></Input>
-        </InputBlock>
-      </PlanBlock>
-      <ModalButton>前往捐款</ModalButton>
-    </>
+        <ModalButton>前往捐款</ModalButton>
+      </div>
+    </DonateModalBlock>
   );
 
   const getServiceModalContent = () => {
