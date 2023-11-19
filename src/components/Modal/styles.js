@@ -31,9 +31,10 @@ const Block = styled.div`
   background-color: #fff;
   border-radius: 24px 24px 0 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   z-index: 1;
   position: relative;
+  margin-top: auto;
   padding: 0 16px 16px 0;
   @media ${device.desktop} {
     padding: 0px 48px 48px 0;
