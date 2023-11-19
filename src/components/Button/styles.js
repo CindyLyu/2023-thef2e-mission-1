@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import arrow from "@/assets/events/arrow.svg";
 
 const Wrapper = styled.div`
   border-radius: 500px;
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
 
   &:after {
     content: "";
-    background-image: url("/src/assets/events/arrow.svg");
+    background-image: url(${arrow});
     width: 22px;
     height: 22px;
     display: inline-block;
