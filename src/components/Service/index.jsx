@@ -1,4 +1,5 @@
 import { useState } from "react";
+import clsx from "clsx";
 
 import { Modal } from "@/components/Modal";
 import { Button } from "@/components/Button";
@@ -31,6 +32,9 @@ import {
   InputBlock,
   Input,
   ModalButton,
+  SuccessBlock,
+  SuccessTitle,
+  CloseButton,
 } from "./styles";
 
 const donatePlan = [
@@ -54,9 +58,11 @@ const donatePlan = [
 const Service = () => {
   const [isOpenDonateModal, setIsOpenDonateModal] = useState(false);
   const [isOpenServiceModal, setIsOpenServiceModal] = useState(false);
+  const [isShowDonationCompleted, setIsShowDonationCompleted] = useState(false);
+  const [currentPlan, setCurrentPlan] = useState(null);
 
   const getDonateModalContent = (
-    <DonateModalBlock>
+    <DonateModalBlock className={clsx({ "-result": isShowDonationCompleted })}>
       <VisualBlock>
         <div>
           <VisualBlockTitle>
@@ -77,23 +83,56 @@ const Service = () => {
         </VisualImage>
       </VisualBlock>
       <div>
-        <DonatePlan>捐款方案</DonatePlan>
-        {donatePlan.map((plan) => (
-          <PlanBlock key={plan.title}>
-            <PlanTitle>{plan.title}</PlanTitle>
-            <AmountBlock>
-              <PlanAmount>{plan.amount}</PlanAmount>
-              <PlanContributors>{plan.contributors}</PlanContributors>
-            </AmountBlock>
-          </PlanBlock>
-        ))}
-        <PlanBlock>
-          <PlanTitle>自訂贊助金額</PlanTitle>
-          <InputBlock>
-            <Input placeholder="輸入金額"></Input>
-          </InputBlock>
-        </PlanBlock>
-        <ModalButton>前往捐款</ModalButton>
+        {isShowDonationCompleted && (
+          <SuccessBlock>
+            <SuccessTitle>感謝您的捐款</SuccessTitle>
+            <img
+              src={
+                new URL("/src/assets/service/success.svg", import.meta.url).href
+              }
+            />
+            <CloseButton
+              onClick={() => {
+                setIsOpenDonateModal(false);
+                setIsShowDonationCompleted(false);
+              }}
+            >
+              關閉
+            </CloseButton>
+          </SuccessBlock>
+        )}
+        {!isShowDonationCompleted && (
+          <>
+            <DonatePlan>捐款方案</DonatePlan>
+            {donatePlan.map((plan) => (
+              <PlanBlock
+                key={plan.title}
+                onClick={() => setCurrentPlan(plan.title)}
+                className={clsx({ "-active": currentPlan === plan.title })}
+              >
+                <PlanTitle>{plan.title}</PlanTitle>
+                <AmountBlock>
+                  <PlanAmount>{plan.amount}</PlanAmount>
+                  <PlanContributors>{plan.contributors}</PlanContributors>
+                </AmountBlock>
+              </PlanBlock>
+            ))}
+            <PlanBlock
+              className={clsx("-custom", {
+                "-active": currentPlan === "custom",
+              })}
+              onClick={() => setCurrentPlan("custom")}
+            >
+              <PlanTitle>自訂贊助金額</PlanTitle>
+              <InputBlock>
+                <Input type="number" placeholder="輸入金額"></Input>
+              </InputBlock>
+            </PlanBlock>
+            <ModalButton onClick={() => setIsShowDonationCompleted(true)}>
+              前往捐款
+            </ModalButton>
+          </>
+        )}
       </div>
     </DonateModalBlock>
   );

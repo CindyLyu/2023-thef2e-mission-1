@@ -11,6 +11,8 @@ import {
   NormalText,
   H1HeadingTitle,
   H2HeadingTitle,
+  H3HeadingTitle,
+  BaseText,
 } from "@/globalStyle";
 
 const Wrapper = styled.div`
@@ -194,6 +196,10 @@ const DonateModalBlock = styled.div`
     > * {
       width: 50%;
     }
+
+    &.-result {
+      align-items: center;
+    }
   }
 `;
 
@@ -261,8 +267,27 @@ const PlanBlock = styled.div`
   padding: 24px 12px;
   border-radius: 16px;
   border: solid 2px var(--color-text-primary-200);
+  transition: border 0.3s;
   & ~ & {
     margin-top: 16px;
+  }
+
+  &.-active {
+    border: solid 2px var(--color-primary-theme-1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border: solid 2px var(--color-primary-theme-1);
+    }
+  }
+
+  @media ${device.desktop} {
+    &:not(.-custom) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 `;
 
@@ -270,12 +295,20 @@ const AmountBlock = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media ${device.desktop} {
+    gap: 39px;
+  }
 `;
 
 const PlanTitle = styled.div`
   color: var(--color-primary-theme-1);
   ${H5HeadingTitle};
   margin-bottom: 8.5px;
+
+  @media ${device.desktop} {
+    margin-bottom: 0;
+  }
 `;
 
 const PlanAmount = styled.div`
@@ -318,7 +351,15 @@ const Input = styled.input`
   padding: 16px 15px 16px 58px;
   border: none;
   width: 100%;
-  // TODO: placeholder style
+  &:focus {
+    outline: none;
+  }
+
+  // TODO: 字體變大好像變得沒對齊
+  &::placeholder {
+    ${BaseText};
+    color: var(--color-text-primary-500);
+  }
 `;
 
 const ModalButton = styled.div`
@@ -332,6 +373,31 @@ const ModalButton = styled.div`
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+`;
+
+const SuccessTitle = styled.div`
+  ${H3HeadingTitle};
+  color: var(--color-text-primary-700);
+`;
+
+const CloseButton = styled.div`
+  border-radius: 500px;
+  background-color: var(--color-text-primary-100);
+  color: var(--color-text-primary-700);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px;
+  text-align: center;
+  width: 224px;
+  margin: 0 auto;
+  cursor: pointer;
+`;
+
+const SuccessBlock = styled.div`
+  text-align: center;
+  > * ~ * {
+    margin-top: 32px;
+  }
 `;
 
 export {
@@ -362,4 +428,7 @@ export {
   InputBlock,
   Input,
   ModalButton,
+  SuccessBlock,
+  SuccessTitle,
+  CloseButton,
 };
