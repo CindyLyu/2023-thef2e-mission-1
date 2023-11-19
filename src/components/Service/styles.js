@@ -189,7 +189,7 @@ const Text = styled.div`
   }
 `;
 
-const DonateModalBlock = styled.div`
+const ModalBlock = styled.div`
   @media ${device.desktop} {
     display: flex;
     gap: 32px;
@@ -218,12 +218,26 @@ const VisualBlock = styled.div`
   }
 `;
 
+const ServiceVisualBlock = styled(VisualBlock)`
+  background-color: #e3f8ff;
+  padding: 0;
+  align-items: flex-start;
+`;
+
 const VisualBlockTitle = styled.div`
   ${H6HeadingTitle};
   color: var(--color-primary-theme-1);
   margin-bottom: 16px;
 
+  &.-service {
+    color: var(--color-text-primary-700);
+    padding: 24px 0 0 24px;
+  }
+
   @media ${device.desktop} {
+    &.-service {
+      padding: 64px 60px 0;
+    }
     ${H1HeadingTitle};
   }
 `;
@@ -250,9 +264,18 @@ const VisualImage = styled.div`
     width: 100%;
   }
 
+  &.-service {
+    max-width: 206px;
+    margin: 0;
+  }
+
   @media ${device.desktop} {
     max-width: 336px;
     margin: 0 auto;
+
+    &.-service {
+      max-width: none;
+    }
   }
 `;
 
@@ -348,7 +371,7 @@ const InputBlock = styled.div`
 const Input = styled.input`
   border-radius: 8px;
   background-color: var(--color-text-primary-100);
-  padding: 16px 15px 16px 58px;
+  padding: 16px 15px;
   border: none;
   width: 100%;
   &:focus {
@@ -359,6 +382,10 @@ const Input = styled.input`
   &::placeholder {
     ${BaseText};
     color: var(--color-text-primary-500);
+  }
+
+  &.-donate {
+    padding: 16px 15px 16px 58px;
   }
 `;
 
@@ -400,6 +427,35 @@ const SuccessBlock = styled.div`
   }
 `;
 
+const ServiceTitle = styled.div`
+  color: var(--color-text-primary-700);
+  ${H5HeadingTitle};
+  margin-bottom: 8px;
+`;
+
+const Textarea = styled.textarea`
+  border-radius: 8px;
+  background-color: var(--color-text-primary-100);
+  border: none;
+  width: 100%;
+  padding: 16px 15px;
+  height: 144px;
+  &::placeholder {
+    ${BaseText};
+    color: var(--color-text-primary-500);
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const ServiceFieldBlock = styled.div`
+  & ~ & {
+    margin-top: 24px;
+  }
+`;
+
 export {
   Wrapper,
   ItemWrapper,
@@ -413,7 +469,8 @@ export {
   Name,
   Number,
   Text,
-  DonateModalBlock,
+  ModalBlock,
+  ServiceVisualBlock,
   VisualBlock,
   VisualBlockTitle,
   DonatePlan,
@@ -431,4 +488,7 @@ export {
   SuccessBlock,
   SuccessTitle,
   CloseButton,
+  ServiceTitle,
+  Textarea,
+  ServiceFieldBlock,
 };

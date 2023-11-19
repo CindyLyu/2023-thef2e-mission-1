@@ -17,7 +17,8 @@ import {
   Name,
   Number,
   Text,
-  DonateModalBlock,
+  ModalBlock,
+  ServiceVisualBlock,
   VisualBlock,
   VisualBlockTitle,
   DonatePlan,
@@ -35,6 +36,9 @@ import {
   SuccessBlock,
   SuccessTitle,
   CloseButton,
+  ServiceTitle,
+  Textarea,
+  ServiceFieldBlock,
 } from "./styles";
 
 const donatePlan = [
@@ -59,10 +63,12 @@ const Service = () => {
   const [isOpenDonateModal, setIsOpenDonateModal] = useState(false);
   const [isOpenServiceModal, setIsOpenServiceModal] = useState(false);
   const [isShowDonationCompleted, setIsShowDonationCompleted] = useState(false);
+  const [isShowSuggestionCompleted, setIsShowSuggestionCompleted] =
+    useState(false);
   const [currentPlan, setCurrentPlan] = useState(null);
 
   const getDonateModalContent = (
-    <DonateModalBlock className={clsx({ "-result": isShowDonationCompleted })}>
+    <ModalBlock className={clsx({ "-result": isShowDonationCompleted })}>
       <VisualBlock>
         <div>
           <VisualBlockTitle>
@@ -125,7 +131,11 @@ const Service = () => {
             >
               <PlanTitle>自訂贊助金額</PlanTitle>
               <InputBlock>
-                <Input type="number" placeholder="輸入金額"></Input>
+                <Input
+                  className="-donate"
+                  type="number"
+                  placeholder="輸入金額"
+                ></Input>
               </InputBlock>
             </PlanBlock>
             <ModalButton onClick={() => setIsShowDonationCompleted(true)}>
@@ -134,12 +144,75 @@ const Service = () => {
           </>
         )}
       </div>
-    </DonateModalBlock>
+    </ModalBlock>
   );
 
-  const getServiceModalContent = () => {
-    return <div>test</div>;
-  };
+  const getServiceModalContent = (
+    <ModalBlock className={clsx({ "-result": isShowSuggestionCompleted })}>
+      <ServiceVisualBlock>
+        <div>
+          <VisualBlockTitle className="-service">
+            分享您的想法 <br />
+            一同為我們的未來打造更美好！
+          </VisualBlockTitle>
+        </div>
+        <VisualImage className="-service">
+          <img
+            alt="民眾服務信箱"
+            src={
+              new URL("/src/assets/service/suggestion.svg", import.meta.url)
+                .href
+            }
+          />
+        </VisualImage>
+      </ServiceVisualBlock>
+      <div>
+        {isShowSuggestionCompleted && (
+          <SuccessBlock>
+            <SuccessTitle>感謝您的意見</SuccessTitle>
+            <img
+              src={
+                new URL("/src/assets/service/success.svg", import.meta.url).href
+              }
+            />
+            <CloseButton
+              onClick={() => {
+                setIsOpenServiceModal(false);
+                setIsShowSuggestionCompleted(false);
+              }}
+            >
+              關閉
+            </CloseButton>
+          </SuccessBlock>
+        )}
+        {!isShowSuggestionCompleted && (
+          <>
+            {/* TODO: 表單驗證尚未做 */}
+            <ServiceFieldBlock>
+              <ServiceTitle>您的姓名</ServiceTitle>
+              <Input type="text" placeholder="輸入內容"></Input>
+            </ServiceFieldBlock>
+            <ServiceFieldBlock>
+              <ServiceTitle>Email</ServiceTitle>
+              <Input type="text" placeholder="email"></Input>
+            </ServiceFieldBlock>
+            <ServiceFieldBlock>
+              <ServiceTitle>手機</ServiceTitle>
+              <Input type="text" placeholder="手機號碼"></Input>
+            </ServiceFieldBlock>
+            <ServiceFieldBlock>
+              <ServiceTitle>您的建言</ServiceTitle>
+              <Textarea type="text" placeholder="輸入內容"></Textarea>
+            </ServiceFieldBlock>
+            <ModalButton onClick={() => setIsShowSuggestionCompleted(true)}>
+              送出意見
+            </ModalButton>
+          </>
+        )}
+      </div>
+    </ModalBlock>
+  );
+
   return (
     <Wrapper id="service">
       <ItemWrapper>
